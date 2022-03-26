@@ -43,13 +43,16 @@
   "scripts": {
     "action:init": "node script/create-new-action.js",
     "doc": "node script/generate-action-docs.js",
-    "test": "standard && jest --coverage"
+    "test": "standard && jest --coverage",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@octokit/rest": "^15.18.3",
     "get-value": "^3.0.1",
     "has": "^1.0.3",
-    "htmlparser2": "^4.1.0"
+    "htmlparser2": "^4.1.0",
+    "@snyk/protect": "latest"
   },
   "peerDependencies": {
     "@hapi/joi": "^16.1.8"
@@ -75,5 +78,6 @@
       "<rootDir>/node_modules/",
       "<rootDir>/tests/mockContext.js"
     ]
-  }
+  },
+  "snyk": true
 }
